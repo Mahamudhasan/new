@@ -1,0 +1,1295 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+         <title> BDT10 - Home.</title>
+		<link rel="icon" href="10.png" type="image/gif" sizes="16x16">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="betting portal ,cricket,football,basketball" />
+        <!-- css -->
+        <link href="./css/bootstrap.min.css" rel="stylesheet" />
+        <link href="./css/font-awesome.css" rel="stylesheet" />
+        <link rel="stylesheet" href="./css/footer-basic-centered.css">
+         <link href="https://fonts.googleapis.com/css?family=Palanquin&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/headerStyle.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+
+    <body>
+        <!-- Modal deposit -->
+        <div id="deposit" class="modal fade" role="dialog" >
+            <div class="modal-dialog  " >
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header m-head" style="background: #0c8281 !important;">
+
+                        <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
+                        <h4 class="modal-title" style="color: #D2D2D2"> &nbsp; Request a deposit</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 1% !important">
+                        <div class="">
+                            <div role="form" class="register-form">
+                                <div id="errorDeposit" class="alert alert-danger errorDeposit" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                        ×</button>  <strong>  Opps !!</strong> <span id="errorDepositText"></span>
+                                </div>
+                                <hr class="colorgraph">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <div class="form-group">
+
+                                            <label style="text-align: left;width: 100%;">Method<span style="color:#DD4F43;">*</span></label>
+
+                                            <select class="form-control" id="dMethodt">
+                                                <option disabled selected value>Select method</option>
+
+                                                                                                        <option value="21">Bkash</option>
+
+                                                                                                    </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <div class="form-group">
+
+                                            <label style="text-align: left;width: 100%;">To <span style="color:#DD4F43;">*</span></label>
+                                            <select class="form-control" id="dTo">
+                                                <option disabled selected value>Select number</option>
+
+                                                                                                        <option>      01300-829651 BK</option>
+
+                                                                                                                <option>      01301-289670 BK</option>
+
+                                                                                                    </select>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+
+                                        <div class="form-group">
+                                            <label style="text-align: left;width: 100%;">Amount <span style="color:#DD4F43;">*</span></label>
+                                            <input type="text" name="first_name" id="dAmount" class="form-control input-lg" placeholder="Amount" tabindex="1">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <label style="text-align: left;width: 100%;">From <span style="color:#DD4F43;">*</span></label>
+                                        <div class="form-group">
+                                            <input type="number" name="dFrom" id="dFrom" class="form-control input-lg" placeholder="From" tabindex="1">
+											<span id="dError" style="color: #C84038;font-family: initial;"></span>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="form-group">
+
+                                    <input type="hidden" value="trxid" name="display_name" id="dReference" class="form-control input-lg" placeholder="Transaction Number " tabindex="3">
+                                </div>
+
+
+
+
+                                <hr class="colorgraph">
+                                <div class="row">
+                                    <div class="col-lg-3"></div>
+                                    <div class="col-lg-6">
+										<input type="submit" id="depositSubmit" value="Submit" style="background-color: #0c8281;" class="btn btn-success btn-block btn-lg" tabindex="7"></div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+<div style="border: 2px solid yellow;"></div>
+        <div id="wrapper" >
+            <!-- start header -->
+            <header>
+
+
+
+                <nav class="navbar navbar-default heading-color" style="background: linear-gradient(to bottom, #ffffff, #0c8281 30%);">
+                    <div class="container">
+                         
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header ">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="float:left;margin-left:10px;">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div style="width:132px;margin:0 auto;">  <a  class="" href="/"><img style="width: 130px;height: 40px;margin-top: 5px; border-radius: 10px;" src="img/logo.PNG"></a></div>
+							                                                                        <div style="position:absolute;right:10px;color:#fff;top:22px;line-height: 6px;color:yellow;font-weight:bolder;">
+                            <p id="MyClockDisplay" onload="showTime()"></p>
+
+                            
+                            <script type="text/javascript">
+                                function showTime(){
+    var date = new Date();
+    var h = date.getHours(); // 0 - 23
+    var m = date.getMinutes(); // 0 - 59
+    var s = date.getSeconds(); // 0 - 59
+    var session = "AM";
+    
+    if(h == 0){
+        h = 12;
+    }
+    
+    if(h > 12){
+        h = h - 12;
+        session = "PM";
+    }
+    
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
+    
+    var time = h + ":" + m + ":" + s + " ";
+    document.getElementById("MyClockDisplay").innerText = time;
+    document.getElementById("MyClockDisplay").textContent = time;
+    
+    setTimeout(showTime, 1000);
+    
+}
+
+showTime();
+                            </script>
+                            </div>
+                    
+                          
+
+									        <!--Modal deposit restrict-->
+<div class="modal fade" id="depositrestrict" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger" id="exampleModalLabel">Warning</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        You have 1 request pending!!!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+                            <table class="guest" id="content-mobile"   style="width:100% ;margin: 0px auto;">
+                                <tr>
+                                                                            <td class="td1">
+                                            <div style=" padding: 7px;background:yellow !important;color: #000000!important;font-weight: bolder;"  class="panel text-center ">  Balance : 0                                            </div>
+
+                                        </td>
+                                        <td class="td2">
+                                                                                           <div  style="padding: 7px;color: #ffffff!important;background:transparent !important;border: 1px solid silver!important;" class="panel text-center"
+													data-toggle="modal" data-target="#deposit">
+                                                Deposit
+                                            </div>
+                                                                                        </td>
+                                                                    </tr>
+                            </table>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav nv left" style="float:right;">                           
+                                                                            <div class="modal fade" id="sponsor" role="dialog">
+                                                <div class="modal-dialog  modal-lg" >
+
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content m-content">
+                                                        <div class="modal-header m-head" style="background: #0c8281!important;">
+
+                                                            <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
+                                                            <h4 class="modal-title" style="color: #C0C0C0">  &nbsp; All Sponsor's</h4>
+                                                        </div>
+                                                        <div class="modal-body" style="">
+                                                            <div class="table-responsive">
+                                                                <table  class="table table-bordered table-hover" id="sampleTable2">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>No.</th>
+                                                                            <th>Name</th>
+                                                                            <th>User Id</th>
+                                                                            <th>Email</th>  
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                                                                                                <div  class="alert alert-danger " role="alert">
+                                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                                                                ×</button>  <strong>  Opps !!</strong> Sponsor's not found !!
+                                                                        </div>
+                                                                        
+                                                                    </tbody>
+
+                                                                </table>
+                                                            </div><!--end of .table-responsive-->
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <li >
+                                                <a style="color: yellow !important;"><mark class="mrk">UserID - jackroy12</mark></a> </li>
+
+                                            <li> <a  href="Wallet.html" >My Wallet</a></li>
+                                            <li> <a href="statement.html" >My Statement</a></li>
+                                            <li><a  href="#" data-toggle="modal" data-target="#sponsor">
+                                                    My Sponsor </a></li>
+                                            <li> <a style="color: yellow !important; font-family: verdana; font-weight: bold;" href="#" ><mark class="mrk">Balance - 0</mark></a></li>
+								
+                                            <li> <a style="color: yellow; font-family: arial;" href="logout?logout" >Log Out</a></li>
+								
+
+
+
+                                            
+
+
+                                                                   
+                            </ul>
+                            
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- end header -->
+            <!-- Modal Login-->
+<div class="modal fade" id="SignIn" role="dialog">
+                <div class="modal-dialog  " >
+
+                    <!-- Modal content-->
+                    <div class="modal-content m-content">
+                        <div class="modal-header m-head" style="  background: #0c8281 !important;">
+
+                            <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
+                            <h4 class="modal-title"  style="color: #fff">   &nbsp; Sign In</h4>
+                        </div>
+                        <div class="modal-body" style="padding: 2% !important">
+                            <div class="signup-form">
+
+                                <div  id="formData">
+
+                                    <div id="errorSignIn" class="alert alert-info errorSignIn" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                            ×</button>  <strong></strong><span id="signinerrorText"></span>
+                                    </div>
+                                     
+                                    <div class="form-group">
+
+                                        <label>User Id <span style="color: red">*</span></label>
+                                        <input type="text" class="form-control" name="userId" 
+                                               value="jackroy12" id="userIdOfuser" placeholder="user Id" required>
+                                        <span id="userIdError" style="color: #C84038;font-family: initial;"></span>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label>Password <span style="color: red">*</span></label>
+                                        <input type="password" class="form-control" name="password" value="64261eba85b813d01890852ca239888f" id="passwordOfuser" placeholder="password">
+                                        
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <button type="submit" id="userSignInForm"  name="userSignInForm"  class="btn btn-success btn-lg btn-block" style="background: #0c8281">Sign In</button>
+
+
+                                    </div>
+                                
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- sign up -->
+            <div id="SignUp" class="modal fade" role="dialog" >
+                <div class="modal-dialog  " >
+
+                    <!-- Modal content-->
+                    <div class="modal-content m-content">
+                        <div class="modal-header m-head" style="background: #0c8281 !important;">
+
+                            <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
+                            <h4 class="modal-title"  style="color: #C0C0C0"> &nbsp; Sign Up</h4>
+                        </div>
+                        <div class="modal-body" style="padding: 2% !important">
+                            <div class="signup-form">
+
+                                <div  id="formData">
+
+                                    <div id="error" class="alert alert-info error" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                            ×</button>  <strong></strong><span id="signuperrorText"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <label>Full Name <span style="color: red">*</span></label>
+                                                <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <label>User Id <span style="color: red">*</span></label>
+                                                <input type="text" class="form-control" name="userId" 
+                                                       value="jackroy12" id="userId" placeholder="user Id" required>
+                                                <span id="userIdError" style="color: #C84038;font-family: initial;"></span>
+                                            </div>
+                                        </div>        	
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <label>Mobile Number <span style="color: red">*</span></label>
+                                                <input type="text" class="form-control" name="mobileNumber" id="mobileNumber" placeholder="mobileNumber" required>
+                                                <span id="mobileError" style="color: #C84038;font-family: initial;"></span>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <label>Email <span style="color: red">*</span></label>
+                                                <input type="email" class="form-control" name="email" id="email" placeholder="email" required="required">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <label>Select Club <span style="color: red">*</span></label>
+                                                <select class="form-control" id="club" name="club">
+
+                                                                                                        <option value="BDT10">BDT10</option>
+                                                                                                                <option value="MaxBet Club">MaxBet Club</option>
+                                                                                                                <option value="King Club">King Club</option>
+                                                                                                                <option value="GURU CLUB">BET-GURU CLUB</option>
+                                                                                                                <option value="5 Star Club">5 Star Club</option>
+                                                                                                                <option value="Oxy Club">Oxy Club</option>
+                                                                                                                <option value="City club">City club</option>
+                                                                                                                <option value="Barisal Club">Barisal Club</option>
+                                                                                                                <option value="BD 24">BD 24</option>
+                                                                                                                <option value="Khulna Club">Khulna club</option>
+                                                                                                                <option value="Bangladesh Club">Bangladesh Club</option>
+                                                                                                                <option value="VIP Club">VIP Club</option>
+                                                                                                                <option value="Davil Club">Davil Club</option>
+                                                                                                                <option value="Australia Club ">Australia Club </option>
+                                                                                                                <option value="Dubai Club">Dubai Club</option>
+                                                                                                                <option value="Superclub">Super Club</option>
+                                                                                                                <option value="Rock Club">Rock Club</option>
+                                                                                                                <option value="Gazipur Club">Gazipur Club</option>
+                                                                                                                <option value="Popular Club ">Popular Club </option>
+                                                                                                                <option value="BET LOVERS">BET LOVERS</option>
+                                                                                                                <option value="Jamuna Club">Jamuna Club</option>
+                                                                                                                <option value="Lions Club">Lions Club</option>
+                                                                                                                <option value="Munshiganj Club">Munshiganj Club</option>
+                                                                                                                <option value="WinBet Club">WinBet Club</option>
+                                                                                                                <option value="Bet 365">Bet 365</option>
+                                                                                                                <option value="Dark-Night">Dark-Night</option>
+                                                                                                                <option value="Eagle Club">Eagle Club</option>
+                                                                                                                <option value="Play Club">Play Club</option>
+                                                                                                                <option value="Barcelona Club">Barcelona Club</option>
+                                                                                                                <option value="Real Madrid club">Real Madrid club</option>
+                                                                                                                <option value="Captain Virat 18">Captain Virat 18</option>
+                                                                                                                <option value="RANGPUR CLUB">RANGPUR CLUB</option>
+                                                                                                                <option value="Five g club">Five g club</option>
+                                                                                                                <option value="STARWARS">Star Wars</option>
+                                                                                                                <option value="Public Club">Public Club </option>
+                                                                                                                <option value="Tipper shawon club">Tipper shawon club</option>
+                                                                                                                <option value="Help line club">Help line club</option>
+                                                                                                                <option value="AsiaClub">Asia club</option>
+                                                                                                                <option value="STARS CLUB">STARS CLUB</option>
+                                                                                                                <option value="Golden Club">Golden Club</option>
+                                                                                                                <option value="Lady doll club">Lady doll Club</option>
+                                                                                                                <option value="Online Sports Club">Online Sports Club</option>
+                                                                                                                <option value="Village club">Village club</option>
+                                                                                                                <option value="Top Club">Top Club</option>
+                                                                                                                <option value="Box Club">Box Club</option>
+                                                                                                                <option value="Rajshahi Club">Rajshahi Club</option>
+                                                                                                                <option value="Sherpur club">Sherpur club</option>
+                                                                                                                <option value="PADMA CITY CLUB">PADMA CITY CLUB</option>
+                                                                                                                <option value="INDIA CLUB">INDIA CLUB</option>
+                                                                                                            </select>
+
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <label>Sponsor's Username</label>
+                                                <input type="text" class="form-control" name="sponsor" id="sponsor" placeholder="Sponsor's Username" >
+                                                <span id="sponsorError" style="color: #C84038;font-family: initial;"></span>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <label>Password <span style="color: red">*</span></label>
+                                                <input type="password" class="form-control" name="password" value="64261eba85b813d01890852ca239888f" id="password" placeholder="password" required="required"  pattern=".{6,}"   title="6 characters minimum">
+                                                <span>Password at least 6 characters.</span>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <label>Confirm Password <span style="color: red">*</span></label>
+                                                <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="confirmPassword" required="required"  pattern=".{6,}"   title="6 characters minimum">
+                                                <span id="passwordError" style="color: #C84038;font-family: initial;"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <button type="submit" id="userSignUp"  name="userSignUp"  class="btn btn-success btn-lg btn-block" style="background: #0c8281">Register Now</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+			
+
+            <style type="text/css">
+                .heading-color {
+               background: #001b35;
+                border-radius: 0px;
+                border: 0px;
+                border-bottom: 1px solid #939393;
+            }
+            </style>
+             <!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4290385,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4290385&101" alt="website stat" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+		
+			<script>
+window.setTimeout(function(){       
+    window.location.href = "logout?logout";
+}, 28800000);
+			</script>
+<link rel="stylesheet" href="css/statementAndWallet.css">
+<body>
+
+
+
+    <div id=" "  style="border-bottom: 1px solid #5F5F5F;min-height: 450px;">
+
+    <style type="text/css">
+        .modal{
+            border-radius: 10px;
+        }
+    </style>
+
+        <!-- Modal deposit -->
+        
+        <!-- Modal withdraw -->
+        <div id="withdraw" class="modal fade" role="dialog" >
+            <div class="modal-dialog  " >
+
+                <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div class="modal-header m-head" style="  background: #0c8281 !important;">
+
+                        <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
+                        <h4 class="modal-title" style="color: white;"> &nbsp;Request a withdraw</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 2% !important">
+                        <div class="">
+                            <div role="form" class="register-form">
+
+                                <div id="errorWithraw" class="alert alert-info errorWithraw" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                        ×</button>  <strong>  Opps !!</strong> <span id="errorWithrawText"></span>
+                                </div>
+                                <hr class="colorgraph">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <div class="form-group">
+
+                                            <label style="text-align: left;width: 100%;">Method<span style="color:#DD4F43;">*</span></label>
+
+                                            <select class="form-control" id="wMethod">
+                                                <option disabled selected value>select Method</option>
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <div class="form-group">
+
+                                            <label style="text-align: left;width: 100%;">Type <span style="color:#DD4F43;">*</span></label>
+                                            <select class="form-control" id="wType">
+                                                <option disabled selected value>Account Type</option>
+                                                <option>Personal</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6 center" >
+                                                                <div class="col-lg-12" style="padding:0px 10px;display:none;" id="withdrawamount">
+                                                                    <button class="placebetbutton" id="1000">1000</button>
+                                                                    <button class="placebetbutton" id="1500">1500</button>
+                                                                    <button class="placebetbutton" id="2000">2000</button>
+                                                                    <button class="placebetbutton" id="2500">2500</button>
+                                                                    <button class="placebetbutton" id="3000" >3000</button>
+                                                                    <button class="placebetbutton" id="3500" >3500</button>
+																	<button class="placebetbutton" id="4000">4000</button>
+                                                                    <button class="placebetbutton" id="4500">4500</button>
+                                                                    <button class="placebetbutton" id="5000">5000</button>
+                                                                    <button class="placebetbutton" id="6000" >6000</button>
+																	<button class="placebetbutton" id="7000">7000</button>
+                                                                    <button class="placebetbutton" id="8000">8000</button>
+                                                                    <button class="placebetbutton" id="9000" >9000</button>
+																	<button class="placebetbutton" id="10000" >10000</button>
+																	<button class="placebetbutton" id="15000" >15000</button>
+										
+									</div>
+                                        <div class="form-group">
+                                            <label style="text-align: left;width: 100%;">Amount <span style="color:#DD4F43;">*</span></label>
+                                            <input type="text" readonly name="first_name" onclick="withdraw()" id="wAmount" style="background: white;" placeholder="Amount" class="form-control" tabindex="1">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <label style="text-align: left;width: 100%;">To <span style="color:#DD4F43;">*</span></label>
+                                        <div class="form-group">
+                                            <input type="number" name="first_name" id="wTo" class="form-control input-lg" placeholder="To" tabindex="1">
+											<span id="wError" style="color: #C84038;font-family: initial;"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+
+                                        <div class="form-group">
+                                            <label style="text-align: left;width: 100%;">Password <span style="color:#DD4F43;">*</span></label>
+                                            <input type="text" name="first_name" id="wPassword" class="form-control input-lg" placeholder="Password" tabindex="1">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+
+
+
+                                <hr class="colorgraph">
+                                <div class="row">
+                                    <div class="col-lg-3"></div>
+                                    <div class="col-lg-6"><input type="submit" style="background-color: #0c8281;" id="withdrawSubmit" value="Submit" class="btn btn-success btn-block btn-lg" tabindex="7"></div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- Modal number verify -->
+        <div id="numberVerify" class="modal fade" role="dialog" >
+            <div class="modal-dialog  " >
+
+                <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div id="" class="showCategoryId"></div>
+                    <div class="modal-header m-head" style="  background: #8000ff !important;">
+
+                        <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
+                        <h4 class="modal-title" style="color: white;"> &nbsp; Verification step</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 2% !important">
+                        <div class="">
+                            <div role="form" class="register-form">
+
+                                <div id="codeError" style="display: none" class="alert alert-info codeError" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                        ×</button>  <strong>  Opps !!</strong> <span id="codeErrorText"></span>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+
+                                        <div class="form-group">
+                                            <label style="text-align: left;width: 100%;">Verify code <span style="color:#DD4F43;">*</span></label>
+                                            <input type="text" name="first_name" id="Vcode" class="form-control input-lg" placeholder="Enter code" tabindex="1">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <label style="text-align: left;width: 100%;">To account number <span style="color:#DD4F43;">*</span></label>
+                                        <div class="form-group">
+                                            <div class=""><button  id="sendCode"  class="btn btn-primary btn-block btn-lg" tabindex="7">send code</button></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                                <hr class="colorgraph">
+                                <div class="row">
+                                    <div class="col-lg-3"></div>
+                                    <div class="col-lg-6"><input style="display: none" type="submit" id="confirmCode" value="Submit" class="btn btn-success btn-block btn-lg" tabindex="7"></div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- Modal changePassword-->
+        <div id="changePassword" class="modal fade" role="dialog" >
+            <div class="modal-dialog  " >
+
+                <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div class="modal-header m-head" style="  background: #0c8281 !important;">
+
+                        <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
+                        <h4 class="modal-title" style="color: white;">  &nbsp; Change Password</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 2% !important">
+                        <div class="">
+                            <div role="form" class="register-form">
+
+                                <div id="errorChangePassword" class="alert alert-info errorChangePassword" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                        ×</button>  <strong>  Opps !!</strong> <span id="errorChangePasswordText"></span>
+                                </div>
+                                <hr class="colorgraph">
+
+
+                                <div class="form-group">
+
+                                    <label style="text-align: left;width: 100%;">Current Password  <span style="color:#DD4F43;">*</span></label>
+                                    <input type="text" name="currentPassword" id="currentPassword" class="form-control input-lg" placeholder="Current Password " tabindex="3" required>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label style="text-align: left;width: 100%;">New Password  <span style="color:#DD4F43;">*</span></label>
+                                    <input type="text" name="newPassword" id="newPassword" class="form-control input-lg" placeholder="New Password" tabindex="3" required>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label style="text-align: left;width: 100%;">Confirm Password  <span style="color:#DD4F43;">*</span></label>
+                                    <input type="text" name="confirmPassword" id="confirmPasswordAgain" class="form-control input-lg" placeholder="Confirm Password" tabindex="3" required>
+                                </div>
+
+
+
+
+                                <hr class="colorgraph">
+                                <div class="row">
+                                    <div class="col-lg-3"></div>
+                                    <div class="col-lg-6"><input type="submit" style="background-color: #0c8281;" id="changePasswordSubmit" value="Submit" class="btn btn-success btn-block btn-lg" tabindex="7"></div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal balance Transfer-->
+       
+<div id="transfertoclub" class="modal fade" role="dialog" >
+            <div class="modal-dialog  " >
+
+                <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div class="modal-header m-head" style="  background: #0c8281 !important;">
+
+                        <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
+                        <h4 class="modal-title" style="color: #D2D2D2"> &nbsp;Transfer Balance</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 2% !important">
+                        <div class="">
+                            <form action="transferuser.php" method="post">
+                            <div role="form" class="register-form">
+                                <hr class="colorgraph">
+                                <div class="row">
+
+
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                                <div class="form-group">
+                                            <label style="text-align: left;width: 100%;">From  <span style="color:#DD4F43;">*</span></label>
+                                            <input type="text" readonly name="from" value="jackroy12" class="form-control input-lg" placeholder="Username" tabindex="1">
+                                        </div>
+                                    </div>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-6">
+
+                                        <div class="form-group">
+                                            <label style="text-align: left;width: 100%;">To User <span style="color:#DD4F43;">*</span></label>
+                                            <input type="text" name="touser" class="form-control input-lg" placeholder="User Name" tabindex="1">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+
+                                        <div class="form-group">
+                                            <label style="text-align: left;width: 100%;">Amount <span style="color:#DD4F43;">*</span></label>
+                                            <input type="text" name="amount" class="form-control input-lg" placeholder="Amount" tabindex="1">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <label style="text-align: left;width: 100%;">Password <span style="color:#DD4F43;">*</span></label>
+                                        <div class="form-group">
+                                            <input type="text" name="password" class="form-control input-lg" placeholder="Password" tabindex="1">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <hr class="colorgraph">
+                                <div class="row">
+                                    <div class="col-lg-3"></div>
+                                    <div class="col-lg-6"><input type="submit" style="background-color: #0c8281;" name="usertransfer" id="btnutransfer" value="Submit" class="btn btn-success btn-block btn-lg"></div>
+
+                                </div>
+                            </div>
+                        </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+          <!-- Modal change club -->
+		<div id="changeClub" class="modal fade" role="dialog" >
+            <div class="modal-dialog  " >
+
+                <!-- Modal content-->
+                <div class="modal-content">
+
+
+                    <div class="modal-header m-head" style="  background: #0c8281 !important;">
+
+                        <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
+                        <h4 class="modal-title" style="color: white"> &nbsp; Change Club</h4>
+                    </div>
+
+                    <div class="modal-body" style="padding: 2% !important">
+                        <div class="">
+                            <div role="form" class="register-form">
+
+
+                                <div id="errorchangeClub" class="alert alert-danger errorchangeClub" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                        ×</button>  <strong>  Opps !!</strong> <span id="errorchangeClubText"></span>
+                                </div>
+                                <hr class="colorgraph">
+
+                                <div class="form-group">
+
+                                    <label style="text-align: left;width: 100%;">Method<span style="color:#DD4F43;">*</span></label>
+
+                                    <select class="form-control" id="cClub">
+                                        <option disabled selected value>Select Club</option>
+                                                                                        <option value="BDT10">BDT10</option>
+
+                                                                                                <option value="BD 24">BD 24</option>
+
+                                                                                                <option value="Jamuna Club">Jamuna Club</option>
+
+                                                                                                <option value="City club">City club</option>
+
+                                                                                                <option value="STARWARS">Star Wars</option>
+
+                                                                                                <option value="BET LOVERS">BET LOVERS</option>
+
+                                                                                                <option value="Bangladesh Club">Bangladesh Club</option>
+
+                                                                                                <option value="Superclub">Super Club</option>
+
+                                                                                                <option value="Rock Club">Rock Club</option>
+
+                                                                                                <option value="Khulna Club">Khulna club</option>
+
+                                                                                                <option value="WinBet Club">WinBet Club</option>
+
+                                                                                                <option value="AsiaClub">Asia club</option>
+
+                                                                                                <option value="Davil Club">Davil Club</option>
+
+                                                                                                <option value="Lions Club">Lions Club</option>
+
+                                                                                                <option value="Barisal Club">Barisal Club</option>
+
+                                                                                                <option value="King Club">King Club</option>
+
+                                                                                                <option value="Golden Club">Golden Club</option>
+
+                                                                                                <option value="Dubai Club">Dubai Club</option>
+
+                                                                                                <option value="GURU CLUB">BET-GURU CLUB</option>
+
+                                                                                                <option value="Australia Club ">Australia Club </option>
+
+                                                                                                <option value="Dark-Night">Dark-Night</option>
+
+                                                                                                <option value="Help line club">Help line club</option>
+
+                                                                                                <option value="Real Madrid club">Real Madrid club</option>
+
+                                                                                                <option value="RANGPUR CLUB">RANGPUR CLUB</option>
+
+                                                                                                <option value="Gazipur Club">Gazipur Club</option>
+
+                                                                                                <option value="MaxBet Club">MaxBet Club</option>
+
+                                                                                                <option value="5 Star Club">5 Star Club</option>
+
+                                                                                                <option value="Munshiganj Club">Munshiganj Club</option>
+
+                                                                                                <option value="Tipper shawon club">Tipper shawon club</option>
+
+                                                                                                <option value="Bet 365">Bet 365</option>
+
+                                                                                                <option value="Barcelona Club">Barcelona Club</option>
+
+                                                                                                <option value="STARS CLUB">STARS CLUB</option>
+
+                                                                                                <option value="Popular Club ">Popular Club </option>
+
+                                                                                                <option value="Public Club">Public Club </option>
+
+                                                                                                <option value="Top Club">Top Club</option>
+
+                                                                                                <option value="Eagle Club">Eagle Club</option>
+
+                                                                                                <option value="VIP Club">VIP Club</option>
+
+                                                                                                <option value="Play Club">Play Club</option>
+
+                                                                                                <option value="Captain Virat 18">Captain Virat 18</option>
+
+                                                                                                <option value="Oxy Club">Oxy Club</option>
+
+                                                                                                <option value="Online Sports Club">Online Sports Club</option>
+
+                                                                                                <option value="Five g club">Five g club</option>
+
+                                                                                                <option value="Sherpur club">Sherpur club</option>
+
+                                                                                                <option value="Rajshahi Club">Rajshahi Club</option>
+
+                                                                                                <option value="Lady doll club">Lady doll Club</option>
+
+                                                                                                <option value="Village club">Village club</option>
+
+                                                                                                <option value="Box Club">Box Club</option>
+
+                                                                                                <option value="PADMA CITY CLUB">PADMA CITY CLUB</option>
+
+                                                                                                <option value="INDIA CLUB">INDIA CLUB</option>
+
+                                                
+                                    </select>
+                                    <div class="form-group">
+
+                                        <label style="text-align: left;width: 100%;"> Password  <span style="color:#DD4F43;">*</span></label>
+                                        <input type="text" name="PasswordClubChange" id="PasswordClubChange" class="form-control input-lg" placeholder="Current Password " tabindex="3" required>
+                                    </div>
+                                </div>                
+                                <hr class="colorgraph">
+                                <div class="row">
+                                    <div class="col-lg-3"></div>
+                                    <div class="col-lg-6"><input type="submit" style="  background: #0c8281 !important;" id="changeClubSubmit" value="Update" class="btn btn-success btn-block btn-lg" tabindex="7"></div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+		 <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger" id="exampleModalLabel">Warning</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        wWithdraw allowed 1 time in 24 hours!!!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+				 <div class="modal fade" id="deposit100" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger" id="exampleModalLabel">Warning</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Please deposit atleast 100tk for withdraw. Its one time in a month.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+                        <section class="callaction ">
+                    <div class="content-wrap" >
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-11 bhoechie-tab-container" style="width: 98.5% !important;color: #0C8281;">
+                                    <div class="col-lg-12  bhoechie-tab-menu" style="margin-left:15px;">
+                                        <div class="list-group">
+                                            <a href="#" style="float:left;" class="list-group-item active text-center list-item">
+                                                Profile
+                                            </a>
+											<a href="#" style="float:left;" id="1" class="list-group-item text-center list-item wDraw"
+                                            data-toggle='modal' data-target='#deposit100'>
+												Withdraw
+											</a>
+											<a href="#" style="float:left;" class="list-group-item text-center list-item" data-toggle="modal" data-target="#changeClub">
+                                                Change Club
+                                            </a>
+											<a href="#" style="float:left;" class="list-group-item text-center list-item "  data-toggle="modal" data-target="#transfertoclub">
+                                                Transfer Balance
+                                            </a>
+											
+                                            <a href="#" style="float:left;" class="list-group-item text-center list-item" data-toggle="modal" data-target="#changePassword">
+                                                Change Password
+                                            </a>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12  bhoechie-tab">
+                                        <!-- flight section -->
+                                        <div class="bhoechie-tab-content active">
+                                            <center>
+                                                <table class="table table-bordered" style="color: #0C8281 !important;">
+
+                                                    <tr>
+                                                        <th>Full Name</th>
+                                                        <td>Jack roy</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Username</th>
+                                                        <td>jackroy12</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Mobile No.</th>
+                                                        <td>01400000010</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Email</th>
+                                                        <td>xocaja2993@bsmitao.com</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Referred By</th>
+                                                        <td>
+                                                                                                                    </td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Club</th>
+                                                        <td>   Oxy Club  </td>
+
+                                                    </tr>
+
+                                                </table>
+
+                                            </center>
+                                        </div>
+
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                
+
+    </div>
+    <footer class="footer-basic-centered ">
+        <div class="container">
+
+
+            <div class="row">
+
+                <div class="col-lg-3">
+                    
+                </div>
+                <div class="col-lg-6">
+                    <p class="footer-links">
+
+                        <a  class="" href=""><img style="width: 150px;height: 40px;margin-left: 10px;border-radius: 10px;" src="img/logo.PNG"></a>
+                    <p style="font-size: 15px;color: #dcdcdc;" class="footer-company-name"> bdt10.com INC. &copy; 2021  all right reserved.</p>
+
+                    </p>
+
+
+                </div>
+                <div class="col-lg-3">
+                    
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
+
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min_1.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/animate.js"></script>
+
+
+    <script src="js/validation/deposit_and_withdraw.js"></script>
+    <script src="js/validation/sendCode.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#data-click").click(function () {
+                $("#data-show").toggle("slow");
+            });
+        });
+
+        $(document).ready(function () {
+            $(".history_check").click(function () {
+                $(".hitory_content").fadeIn("slow");
+            });
+        });
+    </script>
+      <script>
+
+    
+    $("#deposit-numberW").on("click", function () {
+
+       $("#dTo").load('DepositNumber.php');
+
+});
+</script>
+    <script>
+        //wallet
+        $(document).ready(function () {
+            $("div.bhoechie-tab-menu>div.list-group>a").click(function (e) {
+                e.preventDefault();
+                $(this).siblings('a.active').removeClass("active");
+                $(this).addClass("active");
+                var index = $(this).index();
+                $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+                $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+            });
+        });
+    </script>
+
+	
+<script type="text/javascript">
+    $(document).ready(function () {
+    $("#btnutransfer").click(function () {
+        setTimeout(function () { disableButton(); }, 0);
+    });
+
+    function disableButton() {
+        $("#btnutransfer").prop('disabled', true);
+    }
+});
+</script>
+	
+<script type="text/javascript">
+    $(document).ready(function () {
+    $("#withdrawSubmit").click(function () {
+        setTimeout(function () { disableButton(); }, 0);
+    });
+
+    function disableButton() {
+        $("#withdrawSubmit").prop('disabled', true);
+    }
+});
+</script>
+	
+<script>
+	$(document).ready(function () {
+	$("#depositSubmit").click(function() {
+		setTimeout(function() {
+		disableButton();
+		}, 0);
+	});
+		
+		function disableButton() {
+		$("#depositSubmit").prop('disabled', true);
+		}
+	});
+</script>
+
+<script type="text/javascript">
+    $('#1000').click(function(event) {
+    $('#wAmount').val('1000');
+    returnamount('1000')
+
+   });
+    $('#1500').click(function(event) {
+    $('#wAmount').val('1500');
+    returnamount('1500')
+
+   });
+    $('#2000').click(function(event) {
+    $('#wAmount').val('2000');
+    returnamount('2000')
+
+   });
+    $('#2500').click(function(event) {
+    $('#wAmount').val('2500');
+    returnamount('2500')
+
+   });
+    $('#3000').click(function(event) {
+    $('#wAmount').val('3000');
+    returnamount('3000')
+
+   });
+    $('#3500').click(function(event) {
+    $('#wAmount').val('3500');
+    returnamount('3500')
+
+   });
+	
+	    $('#4000').click(function(event) {
+    $('#wAmount').val('4000');
+    returnamount('4000')
+
+   });
+    $('#4500').click(function(event) {
+    $('#wAmount').val('4500');
+    returnamount('4500')
+
+   });
+    $('#5000').click(function(event) {
+    $('#wAmount').val('5000');
+    returnamount('5000')
+
+   });
+    $('#15000').click(function(event) {
+    $('#wAmount').val('15000');
+    returnamount('15000')
+
+   });
+    $('#6000').click(function(event) {
+    $('#wAmount').val('6000');
+    returnamount('6000')
+
+   });
+	$('#7000').click(function(event) {
+    $('#wAmount').val('7000');
+    returnamount('7000')
+
+   });
+    $('#8000').click(function(event) {
+    $('#wAmount').val('8000');
+    returnamount('8000')
+
+   });
+    $('#9000').click(function(event) {
+    $('#wAmount').val('9000');
+    returnamount('9000')
+
+   });
+	$('#10000').click(function(event) {
+    $('#wAmount').val('10000');
+    returnamount('10000')
+
+   });
+</script>
+<script>
+function withdraw(){
+	var x = document.getElementById("withdrawamount");
+	if(x.style.display === "none"){
+	   	x.style.display = "block";
+	   }else{
+		x.style.display = "none";
+	}
+}
+</script>
+
+
+</body>
+</html>
